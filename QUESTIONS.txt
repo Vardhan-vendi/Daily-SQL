@@ -1,0 +1,666 @@
+# SQL MASTER PRACTICE & INTERVIEW QUESTION BANK
+## MySQL | Beginner to Advanced | Interview Preparation
+
+**Database:** Employee Management System  
+**Tables:** `employee`, `department`  
+**Total questions:** 200+
+
+### Topics covered
+
+1. SELECT fundamentals
+2. SQL operators
+3. WHERE clause
+4. DISTINCT
+5. ORDER BY
+6. LIMIT and OFFSET
+7. Aggregate functions
+8. GROUP BY
+9. HAVING
+10. DML commands
+11. DDL, DQL, DCL and TCL
+12. Tricky output-prediction questions
+13. SQL interview theory
+14. Real-world query challenges
+
+---
+
+# LEVEL 1: SELECT STATEMENTS (15 QUESTIONS)
+
+1. Display all columns from the employee table.
+2. Display only employee names.
+3. Display employee ID, employee name and salary.
+4. Display employee name and email.
+5. Display employee name, gender and city.
+6. Display employee name and job role.
+7. Display all columns from the department table.
+8. Display department name and location.
+9. Display employee name and salary using column aliases.
+10. Display employee name as `Employee_Name` and salary as `Monthly_Salary`.
+11. Display employee ID, name, department ID and hire date.
+12. Retrieve only the first 10 employee records.
+13. Display employee names without displaying their IDs.
+14. Display all employee records in their original table retrieval order.
+15. Write a query to retrieve only the columns required for an employee contact list.
+
+# LEVEL 2: COMPARISON OPERATORS (20 QUESTIONS)
+
+**Operators:** `=`, `!=`, `<>`, `>`, `<`, `>=`, `<=`
+
+16. Find employees earning more than 80000.
+17. Find employees earning less than 50000.
+18. Find employees earning exactly 95000.
+19. Find employees whose salary is not equal to 60000.
+20. Find employees whose salary is greater than or equal to 75000.
+21. Find employees whose salary is less than or equal to 55000.
+22. Find employees belonging to department 102.
+23. Find employees who do not belong to department 101.
+24. Find employees hired after 1 January 2022.
+25. Find employees hired before 1 January 2020.
+26. Find employees whose gender is Male.
+27. Find employees whose gender is not Female.
+28. Find employees whose city is Hyderabad.
+29. Find employees whose city is not Mumbai.
+30. Find employees whose job role is Java Developer.
+31. Find employees earning exactly the same salary as 95000.
+32. Find employees earning more than 100000.
+33. Find employees whose department ID is greater than 102.
+34. Find employees whose hire date is on or after 1 January 2021.
+35. Find employees whose salary is different from their manager's salary? (Conceptual challenge: identify why a direct comparison is not possible with a simple row filter.)
+
+# LEVEL 3: LOGICAL OPERATORS (20 QUESTIONS)
+
+**Operators:** `AND`, `OR`, `NOT`
+
+36. Find male employees earning more than 70000.
+37. Find female employees earning less than 80000.
+38. Find employees from Hyderabad AND Bangalore? Explain why this condition cannot return a normal city-matching row.
+39. Find employees from Hyderabad OR Bangalore.
+40. Find employees earning more than 80000 AND belonging to department 102.
+41. Find employees who are not from Mumbai AND earn more than 60000.
+42. Find employees belonging to department 101 OR department 105.
+43. Find male employees from Chennai OR Delhi.
+44. Find employees who are not from Hyderabad.
+45. Find female employees who belong to department 103.
+46. Find employees earning between 50000 and 100000 AND belonging to department 102.
+47. Find employees who are from Hyderabad OR earn more than 100000.
+48. Find employees who are not female AND earn more than 50000.
+49. Find employees from Bangalore AND earning less than 100000.
+50. Find employees who belong to department 102 OR 103 AND earn more than 80000.
+51. Find employees whose salary is greater than 50000 AND less than 90000.
+52. Find employees who are female OR belong to department 102.
+53. Find employees who are not from Chennai AND not from Mumbai.
+54. Find employees hired after 2020 AND earning more than 75000.
+55. Find employees from Delhi OR Hyderabad AND belonging to department 105.
+
+# LEVEL 4: SPECIAL OPERATORS (25 QUESTIONS)
+
+**Operators:** `BETWEEN`, `IN`, `NOT IN`, `LIKE`, `IS NULL`, `IS NOT NULL`
+
+56. Find employees earning between 50000 and 90000.
+57. Find employees earning between 70000 and 120000.
+58. Find employees hired between 2020 and 2023.
+59. Find employees belonging to departments 101, 103 and 105 using IN.
+60. Find employees who do not belong to departments 102 and 104.
+61. Find employees from Hyderabad, Mumbai and Delhi.
+62. Find employees whose names start with A.
+63. Find employees whose names end with a.
+64. Find employees whose names contain the letter r.
+65. Find employees whose names contain the substring `ra`.
+66. Find employees whose names have exactly five characters.
+67. Find employees whose names have at least six characters.
+68. Find employees whose names have the second character as a.
+69. Find employees whose names start with S and end with a.
+70. Find employees whose job role contains Developer.
+71. Find employees whose job role contains Analyst.
+72. Find employees whose email is NULL.
+73. Find employees whose email is NOT NULL.
+74. Find employees whose email ends with `company.com`.
+75. Find employees whose name does not start with A.
+76. Find employees whose salary is NOT BETWEEN 50000 AND 90000.
+77. Find employees whose department ID is IN (101, 102, 103).
+78. Find employees whose city is NOT IN ('Delhi', 'Mumbai').
+79. Find employees whose email contains the letter o.
+80. Find employees whose name has exactly six characters and starts with R.
+
+# LEVEL 5: OPERATOR TRICKY QUESTIONS (20 QUESTIONS)
+
+81. What is the difference between `=` and `LIKE`?
+82. What is the difference between `!=` and `<>` in MySQL?
+83. What is the difference between `IN` and multiple OR conditions?
+84. What is the difference between `BETWEEN` and `>=` with `<=`?
+85. Does BETWEEN include both boundary values?
+86. What is the difference between `%` and `_` in LIKE?
+87. What happens when we use `NOT` with a NULL comparison?
+88. Why does `email = NULL` not return employees with missing emails?
+89. What is the difference between `IS NULL` and `= NULL`?
+90. What happens when we combine AND and OR without parentheses?
+91. Which operator has higher precedence: AND or OR?
+92. What is the difference between `NOT IN` and `IN`?
+93. What happens if a NOT IN list contains NULL?
+94. Can BETWEEN be used with DATE columns?
+95. Is LIKE case-sensitive in MySQL?
+96. What is the result of `salary BETWEEN 50000 AND 50000`?
+97. What happens when we use `NOT BETWEEN`?
+98. Can IN be used with string values?
+99. Can we use multiple LIKE conditions in one WHERE clause?
+100. What is the difference between logical operators and comparison operators?
+
+# LEVEL 6: DISTINCT (15 QUESTIONS)
+
+101. Display all unique cities from employee.
+102. Display all unique genders.
+103. Display all unique job roles.
+104. Display all unique department IDs.
+105. Display unique combinations of city and gender.
+106. Display unique combinations of city and job role.
+107. Count the number of unique cities.
+108. Count the number of unique job roles.
+109. Count the number of unique department IDs.
+110. Count the number of unique email addresses.
+111. Find the number of unique cities among female employees.
+112. Find unique cities where employees earn more than 70000.
+113. Find unique job roles in department 102.
+114. Display unique combinations of gender and department ID.
+115. What is the difference between DISTINCT and GROUP BY?
+
+# LEVEL 7: ORDER BY (15 QUESTIONS)
+
+116. Display employees in ascending order of salary.
+117. Display employees in descending order of salary.
+118. Sort employees alphabetically by name.
+119. Sort employees by hire date from oldest to newest.
+120. Sort employees by hire date from newest to oldest.
+121. Sort employees by department ID in ascending order.
+122. Sort employees by department ID ascending and salary descending.
+123. Sort employees by salary ascending and name alphabetically.
+124. Sort employees by city and then salary descending.
+125. Display employees according to job role alphabetically.
+126. Sort employees by gender and salary descending.
+127. Sort employees by hire date and salary.
+128. Sort employees by salary descending and hire date ascending.
+129. Sort employees using a column alias.
+130. What happens when ORDER BY is used without ASC or DESC?
+
+# LEVEL 8: LIMIT AND OFFSET (15 QUESTIONS)
+
+131. Display the first five employees.
+132. Display the five highest-paid employees.
+133. Display the three lowest-paid employees.
+134. Display the five most recently hired employees.
+135. Display the oldest five employees based on hire date.
+136. Display the top three highest-paid employees from department 102.
+137. Display the top five female employees based on salary.
+138. Display the second set of five employees when sorted by salary descending.
+139. Retrieve employees from the 11th to the 20th position based on employee ID.
+140. Retrieve the second-highest salary using ORDER BY and LIMIT.
+141. Retrieve the third-highest salary using ORDER BY and LIMIT.
+142. Display the last five employees based on employee ID.
+143. Display the first five employees alphabetically.
+144. What is the difference between LIMIT 5 and LIMIT 5 OFFSET 5?
+145. What happens when LIMIT is used without ORDER BY?
+
+# LEVEL 9: AGGREGATE FUNCTIONS (25 QUESTIONS)
+
+**Functions:** COUNT(), SUM(), AVG(), MIN(), MAX()
+
+146. Find the total number of employees.
+147. Find the total salary expenditure of all employees.
+148. Find the average salary of all employees.
+149. Find the maximum salary.
+150. Find the minimum salary.
+151. Find the difference between maximum and minimum salary.
+152. Count the number of male employees.
+153. Count the number of female employees.
+154. Find the average salary of male employees.
+155. Find the average salary of female employees.
+156. Find the total salary of IT employees.
+157. Find the highest salary in department 103.
+158. Find the lowest salary in department 101.
+159. Count employees hired after 2022.
+160. Count employees whose email is NULL.
+161. Count employees whose email is NOT NULL.
+162. Find the average salary of employees from Hyderabad.
+163. Find the total salary of employees from Bangalore.
+164. Find the highest salary among female employees.
+165. Find the lowest salary among male employees.
+166. Find the total number of employees hired in 2020 or later.
+167. Find the average salary of employees earning more than 60000.
+168. Find the total salary of employees belonging to departments 101 and 105.
+169. Count employees whose names start with A.
+170. Find the average salary of employees hired before 2021.
+
+# LEVEL 10: AGGREGATE FUNCTION INTERVIEW TRICKS (20 QUESTIONS)
+
+171. What is the difference between COUNT(*) and COUNT(column_name)?
+172. What is the difference between COUNT(column_name) and COUNT(DISTINCT column_name)?
+173. Do aggregate functions ignore NULL values?
+174. Does COUNT(*) count rows containing NULL values?
+175. Does SUM() ignore NULL values?
+176. What happens when AVG() processes NULL values?
+177. What happens when MAX() is applied to a VARCHAR column?
+178. What happens when MIN() is applied to a DATE column?
+179. Can aggregate functions be used in WHERE?
+180. Can aggregate functions be used in HAVING?
+181. Can aggregate functions be used without GROUP BY?
+182. What is the difference between COUNT(1) and COUNT(*)?
+183. What happens when SUM() is applied to an empty result?
+184. What is the difference between AVG(salary) and SUM(salary)/COUNT(*)?
+185. Can multiple aggregate functions be used in a single SELECT?
+186. What is the difference between MAX(salary) and ORDER BY salary DESC LIMIT 1?
+187. Can aggregate functions be used with DISTINCT?
+188. What happens if all values in an aggregate column are NULL?
+189. Why can COUNT(*) and COUNT(email) return different results?
+190. Can aggregate functions return decimal values?
+
+# LEVEL 11: GROUP BY (20 QUESTIONS)
+
+191. Count employees in each department.
+192. Find the average salary in each department.
+193. Find total salary expenditure in each department.
+194. Find the maximum salary in each department.
+195. Find the minimum salary in each department.
+196. Count employees in each city.
+197. Find the average salary in each city.
+198. Count male and female employees separately.
+199. Find the total salary paid to each gender.
+200. Count employees in each job role.
+201. Find the number of employees in each department and city combination.
+202. Find the average salary for each gender in each department.
+203. Find the maximum salary for each city.
+204. Find the minimum salary for each job role.
+205. Count employees hired in each year using YEAR(hire_date).
+206. Find total salary expenditure for each city and gender.
+207. Find the number of employees in each department with salary greater than 70000.
+208. Find the average salary of each department for male employees only.
+209. Find the total number of employees grouped by department and gender.
+210. Display department-wise employee count and average salary together.
+
+# LEVEL 12: HAVING CLAUSE (15 QUESTIONS)
+
+211. Find departments having more than five employees.
+212. Find departments whose average salary is greater than 80000.
+213. Find cities having more than five employees.
+214. Find job roles having at least two employees.
+215. Find departments whose total salary expenditure exceeds 500000.
+216. Find genders having more than 15 employees.
+217. Find cities whose average salary is below 80000.
+218. Find departments whose maximum salary is greater than 120000.
+219. Find departments whose minimum salary is below 50000.
+220. Find job roles whose average salary exceeds 75000.
+221. Find cities having more than three female employees.
+222. Find departments having at least three employees earning more than 70000.
+223. Find cities where total salary expenditure exceeds 500000.
+224. Find departments where the difference between maximum and minimum salary exceeds 50000.
+225. Find departments having more than five employees and average salary greater than 70000.
+
+# LEVEL 13: WHERE VS HAVING – INTERVIEW TRICKS (15 QUESTIONS)
+
+226. Explain the difference between WHERE and HAVING.
+227. Can WHERE and HAVING be used together?
+228. Can WHERE filter aggregate-function results?
+229. Can HAVING be used without GROUP BY in MySQL?
+230. What happens if WHERE is executed before GROUP BY?
+231. Why is HAVING used after GROUP BY?
+232. Write a query to find departments with average salary above 80000, excluding employees earning less than 50000 before grouping.
+233. Write a query to find cities having more than five employees, considering only male employees.
+234. Can HAVING filter a non-aggregated column?
+235. Can GROUP BY be used without aggregate functions?
+236. Can we group by multiple columns?
+237. What happens when a grouped column contains NULL values?
+238. Can WHERE use a column alias defined in SELECT?
+239. Can HAVING use an aggregate expression?
+240. Explain the logical execution order of WHERE, GROUP BY, HAVING and ORDER BY.
+
+# LEVEL 14: DML COMMANDS (20 QUESTIONS)
+
+**Commands:** INSERT, UPDATE, DELETE
+
+241. Insert a new employee with all specified fields.
+242. Insert an employee with only mandatory columns.
+243. Insert multiple employees using one INSERT statement.
+244. Update the salary of employee 1006 to 48000.
+245. Update the city of employee 1013 to Hyderabad.
+246. Increase the salary of all IT employees by 10%.
+247. Change the job role of employee 1034 to Senior Sales Executive.
+248. Update the email of employee 1011.
+249. Increase the salary of female employees by 5%.
+250. Update the city of all Finance employees to Bangalore.
+251. Delete employee 1040.
+252. Delete employees earning below 40000.
+253. Delete all employees belonging to department 104.
+254. Delete employees who do not have an email address.
+255. Update the salary of employees in department 101 by 2000.
+256. Set the email of a specific employee to NULL.
+257. What happens when UPDATE is executed without WHERE?
+258. What happens when DELETE is executed without WHERE?
+259. Can UPDATE modify multiple columns simultaneously?
+260. What is the difference between DELETE and TRUNCATE?
+
+# LEVEL 15: DDL, DQL, DCL AND TCL INTERVIEW QUESTIONS (15 QUESTIONS)
+
+261. What is SQL?
+262. What is the difference between SQL and MySQL?
+263. What are DDL commands?
+264. What are DML commands?
+265. What are DQL commands?
+266. What are DCL commands?
+267. What are TCL commands?
+268. What is the difference between CREATE and ALTER?
+269. What is the difference between DROP and TRUNCATE?
+270. What is the difference between DELETE and DROP?
+271. What is the difference between COMMIT and ROLLBACK?
+272. What is SAVEPOINT?
+273. What is the purpose of GRANT and REVOKE?
+274. What is the difference between PRIMARY KEY and UNIQUE?
+275. What is the difference between NULL and DEFAULT?
+
+# LEVEL 16: OUTPUT PREDICTION – TRICKY SQL QUESTIONS (20 QUESTIONS)
+
+For each question, predict the result before executing the query.
+
+276. What does this return?
+
+```sql
+SELECT *
+FROM employee
+WHERE salary > 50000 AND salary < 90000
+OR department_id = 102;
+```
+
+277. What is the difference in results between these queries?
+
+```sql
+SELECT *
+FROM employee
+WHERE salary > 50000
+AND department_id = 102
+OR department_id = 103;
+```
+
+```sql
+SELECT *
+FROM employee
+WHERE salary > 50000
+AND (department_id = 102 OR department_id = 103);
+```
+
+278. What happens here?
+
+```sql
+SELECT *
+FROM employee
+WHERE email = NULL;
+```
+
+279. What does this return?
+
+```sql
+SELECT COUNT(*), COUNT(email)
+FROM employee;
+```
+
+280. What is the output?
+
+```sql
+SELECT DISTINCT city, gender
+FROM employee;
+```
+
+281. What is the difference between these queries?
+
+```sql
+SELECT COUNT(city)
+FROM employee;
+```
+
+```sql
+SELECT COUNT(DISTINCT city)
+FROM employee;
+```
+
+282. What happens here?
+
+```sql
+SELECT AVG(salary), SUM(salary), COUNT(*)
+FROM employee
+WHERE department_id = 999;
+```
+
+283. Predict the output:
+
+```sql
+SELECT department_id, COUNT(*)
+FROM employee
+GROUP BY department_id
+ORDER BY COUNT(*) DESC;
+```
+
+284. What is the result?
+
+```sql
+SELECT gender, AVG(salary)
+FROM employee
+GROUP BY gender
+HAVING AVG(salary) > 70000;
+```
+
+285. What happens if we execute?
+
+```sql
+SELECT department_id, employee_name
+FROM employee
+GROUP BY department_id;
+```
+
+286. Predict the result:
+
+```sql
+SELECT *
+FROM employee
+ORDER BY salary DESC
+LIMIT 1 OFFSET 1;
+```
+
+287. What is the result?
+
+```sql
+SELECT COUNT(DISTINCT email)
+FROM employee;
+```
+
+288. What is the difference between the following?
+
+```sql
+SELECT *
+FROM employee
+WHERE salary BETWEEN 50000 AND 90000;
+```
+
+```sql
+SELECT *
+FROM employee
+WHERE salary > 50000 AND salary < 90000;
+```
+
+289. Predict the result:
+
+```sql
+SELECT department_id, MAX(salary)
+FROM employee
+GROUP BY department_id
+HAVING MAX(salary) > 100000;
+```
+
+290. What happens here?
+
+```sql
+SELECT *
+FROM employee
+WHERE NOT (city = 'Hyderabad' OR city = 'Mumbai');
+```
+
+291. What is the result?
+
+```sql
+SELECT *
+FROM employee
+WHERE employee_name LIKE '_____%';
+```
+
+292. Predict the output:
+
+```sql
+SELECT department_id, SUM(salary)
+FROM employee
+GROUP BY department_id
+ORDER BY SUM(salary) DESC
+LIMIT 2;
+```
+
+293. What happens when DISTINCT is applied to multiple columns?
+
+```sql
+SELECT DISTINCT city, gender
+FROM employee;
+```
+
+294. What happens if LIMIT is used without ORDER BY?
+
+```sql
+SELECT *
+FROM employee
+LIMIT 5;
+```
+
+295. What is the difference between these queries?
+
+```sql
+SELECT COUNT(*)
+FROM employee
+WHERE email IS NULL;
+```
+
+```sql
+SELECT COUNT(email)
+FROM employee;
+```
+
+# LEVEL 17: ADVANCED INTERVIEW QUERY CHALLENGES (20 QUESTIONS)
+
+Attempt these using only your current topics wherever possible. Some questions are deliberately designed to challenge your understanding of aggregate functions, grouping and filtering.
+
+296. Find the second-highest distinct salary using ORDER BY and LIMIT.
+
+297. Find the third-highest distinct salary using DISTINCT, ORDER BY and LIMIT.
+
+298. Find the highest-paid employee in the entire organization.
+
+299. Find the three employees with the lowest salaries.
+
+300. Find employees earning more than 90000 but less than 120000.
+
+301. Find employees whose salaries are duplicated.
+
+302. Find all employees earning the same salary as another employee.
+
+303. Find the number of employees earning the same salary for each salary amount.
+
+304. Find the department with the highest total salary expenditure.
+
+305. Find the department with the lowest total salary expenditure.
+
+306. Find the department with the highest average salary.
+
+307. Find the department with the lowest average salary.
+
+308. Find the department with the highest number of employees.
+
+309. Find the department with the lowest number of employees.
+
+310. Find the city having the highest average salary.
+
+311. Find the city having the lowest average salary.
+
+312. Find the gender having the highest average salary.
+
+313. Find the job role with the highest average salary.
+
+314. Find the top three cities based on total salary expenditure.
+
+315. Find the department-wise salary range using MAX(salary) - MIN(salary).
+
+# LEVEL 18: REAL-WORLD BUSINESS SQL CHALLENGES (15 QUESTIONS)
+
+316. Calculate the total monthly salary expenditure of the organization.
+
+317. Calculate the percentage of employees belonging to each department.
+
+318. Calculate the percentage contribution of each department to the total salary expenditure.
+
+319. Find departments where the average salary is greater than the company-wide average salary. (Requires a subquery; attempt after learning it.)
+
+320. Find employees whose salaries are above the company-wide average. (Requires a subquery.)
+
+321. Find the city with the largest employee workforce.
+
+322. Find the gender distribution percentage in the organization.
+
+323. Calculate the average salary for every department and sort from highest to lowest.
+
+324. Find the department with the highest salary expenditure per employee.
+
+325. Find how many employees were hired in each year.
+
+326. Find the year with the highest number of new hires.
+
+327. Find the number of employees hired before 2020.
+
+328. Find the number of employees hired between 2020 and 2022.
+
+329. Find the total salary expenditure of employees hired after 2022.
+
+330. Find the average salary for each combination of department and gender.
+
+---
+
+# SQL INTERVIEW REVISION CHECKLIST
+
+Before moving to JOINs, make sure you can answer these independently:
+
+- [ ] Difference between SELECT and DISTINCT.
+- [ ] Difference between WHERE and HAVING.
+- [ ] Difference between AND and OR.
+- [ ] Operator precedence.
+- [ ] Difference between IN and BETWEEN.
+- [ ] Difference between LIKE and comparison operators.
+- [ ] Difference between IS NULL and = NULL.
+- [ ] Difference between COUNT(*) and COUNT(column).
+- [ ] Difference between COUNT and COUNT(DISTINCT).
+- [ ] How aggregate functions handle NULL.
+- [ ] Difference between GROUP BY and ORDER BY.
+- [ ] Difference between LIMIT and OFFSET.
+- [ ] How to find second-highest distinct salary.
+- [ ] Difference between DELETE, TRUNCATE and DROP.
+- [ ] Difference between DDL, DML, DQL, DCL and TCL.
+- [ ] Difference between COMMIT and ROLLBACK.
+- [ ] Logical execution order of SQL clauses.
+- [ ] How to use multiple aggregate functions together.
+- [ ] How to filter grouped results using HAVING.
+- [ ] How to combine multiple operators correctly.
+
+---
+
+# PERSONAL PRACTICE RULES
+
+1. Write every query yourself.
+2. Execute it in MySQL Workbench.
+3. Verify the output manually.
+4. Experiment with different values and conditions.
+5. Try alternative ways to solve the same question.
+6. For tricky questions, predict the output before execution.
+7. Explain your query as if you are answering an interviewer.
+8. Maintain a separate file for questions you could not solve.
+
+**Important:** For UPDATE and DELETE experiments, use a copy of your practice database or restore your original records before repeating the exercises.
+
+**Next learning milestone:** Once you master this workbook, move to SQL JOINs, subqueries, correlated subqueries, CTEs, window functions, indexes and query optimization.
